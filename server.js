@@ -3,11 +3,6 @@ const http = require("http");
 const path = require("path");
 const port = 3099;
 
-// const deployFolder = 'public';
-// const cwd = process.cwd();
-// const dir = path.join(cwd, deployFolder);
-// const index = '/index.html';
-
 console.log("Server started @ port", port);
 
 const server = http.createServer(function (req, res) {
