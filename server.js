@@ -29,7 +29,7 @@ const server = http.createServer(function (req, res) {
   // return res.end(`URL is ${url}, or maybe not. Microservice working tho..`);
   // convert it to a 404 page...
   console.log(`log of 'url: ${url}' added @`, new Date());
-  if (url.substr(0, 4) === "/log") {
+  if (url.split('/')[1] === "log") {
     res.writeHead(200);
     return res.end(ms2);
   }
