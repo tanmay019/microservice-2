@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-deploy
+  labels:
+    app: react
+spec:
+  replicas: {{ .Values.replicas.log }}
+  selector:
+    matchLabels:
+      app: log
+  template:
+    metadata:
+      labels:
+        app: log
+    spec:
+      containers:
+        - name: kube
+          image: "{{ .Values.containerImage }}:{{ .Values.commitId }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.containerPorts.log }}

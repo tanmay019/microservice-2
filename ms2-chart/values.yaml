@@ -1,0 +1,22 @@
+# local/prod
+env: local
+
+servicePorts:
+  react: 80
+  log: 3099
+
+serviceType:
+  react: ClusterIP
+  log: ClusterIP
+
+containerPorts:
+  react: 3030
+  log: 3099
+
+replicas:
+  react: 1
+  log: 2
+
+containerImage: gauti019/logger-microservice
+
+commitId: latest

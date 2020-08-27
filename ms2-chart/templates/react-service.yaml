@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: log
+spec:
+  type: {{ .Values.serviceType.log }}
+  selector:
+    app: log
+  ports:
+    - port: {{ .Values.servicePorts.log }} # what is it's use
+      protocol: TCP
+      targetPort: {{ .Values.containerPorts.log }} # this is where APPLICATION-PORT goes.
+
+      # nodePort: 30011
+      # protocol: TCP
+      # name: http
+
+    # - port: {{ .Values.servicePorts.react }}
+    #   targetPort: {{ .Values.containerPorts.react }}  # this is where APPLICATION-PORT goes.
+    #   nodePort: 30009
+    #   protocol: TCP
+    #   name: http
