@@ -15,7 +15,7 @@ containerPorts:
 
 replicas:
   react: 1
-  log: 3
+  log: 2
 
 containerImage: gauti019/logger-microservice
 

@@ -18,7 +18,7 @@ jobs:
         run: "commitId='${{ github.sha }}' && export commitId"
 
       - name: "Debug: Echo commitId"
-        run: "cat ./ms2-chart/values.yaml"
+        run: "echo $commitId"
 
       - name: "Use Node.js 10.x"
         uses: actions/setup-node@v1
@@ -35,6 +35,9 @@ jobs:
 
       - name: "Set latest container-image to use"
         run: "sed -i '$ d' ./ms2-chart/values.yaml  && echo commitId: $commitId >> ./ms2-chart/values.yaml"
+
+      - name: "Debug: Echo commitId"
+        run: "cat ./ms2-chart/values.yaml"
 
       - name: Setup & install Google-Cloud-Platform
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
@@ -57,4 +60,4 @@ jobs:
           version: "v3.3.0"
 
       - name: K8s deploy stuff
-        run: "./deploy-to-k8s.sh ${{ github.sha }}"
+        run: "./deploy-to-k8s.sh $commitId"
