@@ -18,7 +18,7 @@ jobs:
         run: "commitId='${{ github.sha }}' && export commitId"
 
       - name: "Debug: Echo commitId base64"
-        run: "echo $commitId | base64"
+        run: "echo ${{ github.sha }} | base64"
 
       - name: "Use Node.js 10.x"
         uses: actions/setup-node@v1
@@ -34,7 +34,7 @@ jobs:
           tags: ${{ github.sha }}
 
       - name: "Set latest container-image to use"
-        run: "sed -i '$ d' ./ms2-chart/values.yaml  && echo commitId: $commitId >> ./ms2-chart/values.yaml"
+        run: "sed -i '$ d' ./ms2-chart/values.yaml  && echo commitId: ${{ github.sha }} >> ./ms2-chart/values.yaml"
 
       - name: "Debug: Echo commitId"
         run: "cat ./ms2-chart/values.yaml"
