@@ -15,8 +15,10 @@ containerPorts:
 
 replicas:
   react: 1
-  log: 2
+  log: 1
 
-containerImage: gauti019/logger-microservice
+containerImage:
+  react: gauti019/kube-deploy
+  log: gauti019/logger-microservice
 
 commitId: latest

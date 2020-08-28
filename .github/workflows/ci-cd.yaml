@@ -19,6 +19,12 @@ jobs:
         with:
           node-version: "10.x"
 
+      - name: "Install Dependencies"
+        run: npm ci
+
+      - name: "Create Build: Secure Executable file"
+        run: npm run build
+
       - name: Build and push to docker hub
         uses: docker/build-push-action@v1
         with:
