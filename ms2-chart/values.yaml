@@ -19,4 +19,4 @@ replicas:
 
 containerImage: gauti019/logger-microservice
 
-commitId: latest
+commitId: 12
