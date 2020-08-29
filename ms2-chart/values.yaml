@@ -21,4 +21,4 @@ containerImage:
   react: gauti019/kube-deploy
   log: gauti019/logger-microservice
 
-commitId: latest
+commitId: 7c22b91e8ffd08f80a8fc6288e92f1e068281d80
