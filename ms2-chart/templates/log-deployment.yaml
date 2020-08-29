@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: kube
-          image: "{{ .Values.containerImage }}:{{ .Values.commitId }}"
+          image: "{{ .Values.containerImage.log }}:{{ .Values.commitId }}"
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.containerPorts.log }}
